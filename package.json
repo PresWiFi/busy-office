@@ -1,0 +1,62 @@
+{
+  "name": "busy-office",
+  "productName": "Busy Office",
+  "version": "1.0.0",
+  "description": "Pretend office desktop for kids. Every key press does something.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --windowed",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.busyoffice.app",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**"
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.kids-games",
+      "identity": "-"
+    },
+    "dmg": {
+      "artifactName": "BusyOffice-${version}-mac.${ext}"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "BusyOffice-${version}-windows-setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "BusyOffice-${version}-windows-portable.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Game"
+    },
+    "appImage": {
+      "artifactName": "BusyOffice-${version}-linux.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

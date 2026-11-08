@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Busy Office</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="desktop">
+  <div id="windows">
+
+    <!-- Mail -->
+    <section class="win" id="mail" style="--accent:#3b82f6">
+      <header class="titlebar"><span class="tile">P</span><span class="title">Inbox – Postbox</span><span class="controls"><i>–</i><i>☐</i><i>✕</i></span></header>
+      <div class="ribbon"><button class="primary">✉ New mail</button><span>Delete</span><span>Archive</span><span>Reply</span><span>Reply all</span><span>Forward</span></div>
+      <div class="mail-body">
+        <nav class="folders">
+          <div class="folder active">Inbox <b id="mail-unread">0</b></div>
+          <div class="folder">Drafts</div>
+          <div class="folder">Sent Items <b id="mail-sent">0</b></div>
+          <div class="folder">Archive</div>
+          <div class="folder">Junk Email</div>
+        </nav>
+        <div class="msg-list" id="mail-list"></div>
+        <div class="compose" id="mail-compose">
+          <div class="compose-actions"><button class="send" id="mail-send">➤ Send</button><span>Discard</span></div>
+          <div class="row"><label>To</label><div class="field" id="mail-to"></div></div>
+          <div class="row"><label>Subject</label><div class="field" id="mail-subject"></div></div>
+          <div class="mail-text" id="mail-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chat -->
+    <section class="win" id="teams" style="--accent:#8b5cf6">
+      <header class="titlebar"><span class="tile">H</span><span class="title">Chat – Huddle</span><span class="controls"><i>–</i><i>☐</i><i>✕</i></span></header>
+      <div class="teams-body">
+        <nav class="rail"><div class="active">💬<small>Chat</small></div><div>👥<small>Groups</small></div><div>📅<small>Calendar</small></div><div>📞<small>Calls</small></div><div>📁<small>Files</small></div></nav>
+        <div class="chat-list" id="chat-list"></div>
+        <div class="convo">
+          <div class="convo-head" id="convo-head"></div>
+          <div class="bubbles" id="bubbles"></div>
+          <div class="typing" id="typing"></div>
+          <div class="chat-box"><div class="chat-input" id="chat-input"></div><button class="send" id="chat-send">➤</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Word -->
+    <section class="win" id="word" style="--accent:#0d9488">
+      <header class="titlebar"><span class="tile">S</span><span class="title" id="word-title">Untitled 1 – Scribe</span><span class="controls"><i>–</i><i>☐</i><i>✕</i></span></header>
+      <div class="ribbon tabs"><span class="on">Home</span><span>Insert</span><span>Design</span><span>Layout</span><span>Share</span><span>Review</span><span>View</span></div>
+      <div class="ribbon tools"><span class="tool"><b>B</b></span><span class="tool"><i>I</i></span><span class="tool"><u>U</u></span><span class="sep"></span><span class="pill">Sans</span><span class="pill">11</span><span class="sep"></span><span class="pill" id="word-style">Normal</span><span class="pill">Heading 1</span><span class="pill">Title</span></div>
+      <div class="word-canvas" id="word-canvas"><div class="page" id="word-page"></div></div>
+      <div class="statusbar"><span id="word-pages">Page 1 of 1</span><span id="word-count">0 words</span><span>English (United States)</span></div>
+    </section>
+
+    <!-- Excel -->
+    <section class="win" id="excel" style="--accent:#d97706">
+      <header class="titlebar"><span class="tile">T</span><span class="title">Untitled – Tally</span><span class="controls"><i>–</i><i>☐</i><i>✕</i></span></header>
+      <div class="ribbon tabs"><span class="on">Home</span><span>Insert</span><span>Math</span><span>Data</span><span>Review</span><span>View</span></div>
+      <div class="formula"><span class="namebox" id="xl-name">A1</span><span class="fx">fx</span><span class="fbar" id="xl-formula"></span></div>
+      <div class="grid-wrap"><table class="grid" id="xl-grid"></table></div>
+      <div class="sheets"><span class="on">Sheet1</span><span>Sheet2</span><span>+</span></div>
+    </section>
+
+    <!-- Browser -->
+    <section class="win" id="browser" style="--accent:#ec4899">
+      <header class="titlebar browser-bar"><span class="tabchip">🫧 Bubbles</span><span class="tabchip off">+ </span><span class="controls"><i>–</i><i>☐</i><i>✕</i></span></header>
+      <div class="addr"><span>←</span><span>→</span><span>⟳</span><div class="url" id="br-url">bubbles.fun</div></div>
+      <div class="rd">
+        <div class="rd-head"><span class="rd-logo">bubbles</span><span class="rd-search">🔍 Search</span></div>
+        <div class="rd-feed" id="rd-feed"></div>
+        <div class="rd-post" id="rd-post"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="toasts"></div>
+
+  <footer id="taskbar">
+    <div class="tb-start"></div>
+    <div class="tb-search">🔍 Search</div>
+    <div class="tb-apps" id="tb-apps"></div>
+    <div class="tb-tray"><span>📶 🔊</span><span id="clock"></span></div>
+  </footer>
+</div>
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
